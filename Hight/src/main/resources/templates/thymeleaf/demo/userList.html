@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/static/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/dist/js/jquery-3.2.1.js"></script>
+<link rel="stylesheet" href="/static/dist/css/bootstrap.css">
+</head>
+<body>
+	<div>
+		<!-- <button type="button" class="btn btn-primary" onclick="add()">添加</button> -->
+		<a class="btn btn-primary" th:href="@{/user/add}">添加</a>
+	</div>
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>性别</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="u:${list}">
+					<td th:text="${u.id}">产品1</td>
+					<td th:text="${u.name}">23/11/2013</td>
+					<td th:text="${u.age}">待发货</td>
+					<td th:text="${u.sex}">产品2</td>
+					<td><a class="btn btn-primary" th:href="@{/user/toEdit(id=${u.id})}">修改</a></td>
+					<td><a class="btn btn-danger" th:href="@{/user/delete(id=${u.id})}">删除</a></td>
+				</tr>				
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
